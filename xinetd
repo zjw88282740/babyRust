@@ -5,7 +5,7 @@ service pwn
     wait        = no
     server      = /bin/sh
     # replace helloworld to your program
-    server_args = -c cd${IFS}/home/pwn;exec${IFS}./pwn
+    server_args = -c cd${IFS}/home/pwn;exec${IFS}timeout${IFS}120${IFS}./babyRust
     socket_type = stream
     protocol    = tcp
     user        = pwn 
